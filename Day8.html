@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day8</title>
+    <style>
+        .a {
+            border: 2px solid black;
+            
+        }
+        table {
+            border-collapse: collapse;
+        
+        }
+        th {
+            padding: 5px;
+        }
+        #button1 {
+            padding : 10px; 
+            margin : 10px ;
+            margin-left: 40px ; 
+
+        }
+        label ,input {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <form>
+            <label>
+                Name
+                <input type="text" required>
+               
+            </label>
+            <label>
+                rollNumber
+                    <input type="text" class="name">
+                
+            </label>
+                            <label> persantage
+                <input type = "text" required class="rollno">
+                            </label>
+                            <button type="submit" class="button2" id="button1" class="per">Insert data</button> 
+        </form>
+            
+
+        <table border="2" class="table1"> 
+            <tr>
+                <th>Name</th>
+                <th>rollNumber</th>
+                <th>marks</th>
+            </tr>
+        </table>
+        <button class="button1" id="button1">Show Top Scorers</button> 
+
+        <table border="2" class="table2"> 
+            <tr>
+                <th>Name</th>
+                <th>rollNumber</th>
+                <th>marks</th>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+  
+const students = [
+  {
+    name: "Rehan",
+    rollNumber: 101,
+    marks: 100
+  },
+  {
+    name: "Asad",
+    rollNumber: 102,
+    marks: 90
+  },
+ 
+  {
+    name: "qsim",
+    rollNumber: 103,
+    marks: 60
+ 
+  },
+  {
+   name: "huzaifa",
+  rollNumber: 104,
+  marks:80
+  },
+  {
+  name:"abcd",
+  rollNumber:105,
+  marks:85 }
+
+];
+let button2 = document.querySelector(".button2");
+    button2.addEventListener("click" , fun2);
+    function fun2(){
+     let name= document.querySelector(".name").value;
+     let rollno = document.querySelector(".rollno").value;
+    let per = document.querySelector(".per").value;
+    const newstudents = {
+        
+            name: name ,
+            rollNumber: rollno ,
+            marks : per 
+
+        
+    
+        } ;
+        students.push(newstudent);   
+let table1 = document.querySelector(".table1");
+
+let tr = document.createElement("tr");
+let td1 = document.createElement("td");
+let td2 = document.createElement("td");
+let td3 = document.createElement("td");
+
+td1.innerHTML = name;
+td2.innerHTML = rollno;
+td3.innerHTML = per;
+
+tr.appendChild(td1);
+tr.appendChild(td2);
+tr.appendChild(td3);
+table1.appendChild(tr);
+
+        }
+    
+students.forEach(element => {
+    let name = element.name;
+    let roll = element.rollNumber;
+    let marks = element.marks;
+    let table1 = document.querySelector(".table1");
+
+    let tr = document.createElement("tr");
+    let td1 = document.createElement("td");
+    let td2 = document.createElement("td");
+    let td3 = document.createElement("td");
+
+    td1.innerHTML = name;
+    td2.innerHTML = roll;
+    td3.innerHTML = marks;
+
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    table1.appendChild(tr);
+});
+
+let button1= document.querySelector(".button1");
+button1.addEventListener("click" , fun1);
+function fun1() {
+students.forEach(i => {
+let marksc= i.marks;
+if (marksc >= 70 ) {
+    let name = i.name;
+    let roll = i.rollNumber;
+    let marks = i.marks;
+    let table2 = document.querySelector(".table2");
+
+    let tr = document.createElement("tr");
+    let td1 = document.createElement("td");
+    let td2 = document.createElement("td");
+    let td3 = document.createElement("td");
+
+    td1.innerHTML = name;
+    td2.innerHTML = roll;
+    td3.innerHTML = marks;
+
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    table2.appendChild(tr);
+}
+
+
+});
+}
+
+
+
+
+ 
+</script>
+</html>
+
+
+
+
+
+
